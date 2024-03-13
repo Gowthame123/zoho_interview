@@ -1,0 +1,26 @@
+remove all the vowels if the vowels in followed by the same vowels than add the both vowels to ouput
+
+input : "compuuter"
+
+output : "cmpuutr"
+
+CODE :
+
+n = "compuuter"
+vowels = 'aeiou'
+out = ''
+
+i = 0
+while i < len(n):
+    if n[i] not in vowels:
+        out += n[i]  # Add consonant to the output
+        i += 1
+    else:
+        j = i + 1
+        while j < len(n) and n[j] == n[i]:
+            out += n[i]
+            out += n[j]  # Add consecutive vowels of the same type
+            j += 1
+        i = j  # Move to the next character after the consecutive vowels
+
+print(out)
